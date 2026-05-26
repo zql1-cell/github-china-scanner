@@ -1,13 +1,25 @@
 import os
+import streamlit as st
 
-# GitHub GraphQL API 配置
-# 如何获取 Token: https://github.com/settings/tokens
-# 创建 Personal Access Token，勾选 "read:user" 和 "repo" 权限即可
-# 设置环境变量 GITHUB_TOKEN 或在下方直接填写
+# GitHub API 配置
+# 优先从 Streamlit secrets 读取，否则从环境变量读取
+try:
+    GITHUB_TOKEN = st.secrets.get("GITHUB_TOKEN", os.environ.get("GITHUB_TOKEN", ""))
+except Exception:
+    GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "YOUR_TOKEN_HERE")
+# 如果环境变量也没有，尝试读取 .env 文件
+if not GITHUB_TOKEN:
+    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if os.path.exists(env_path):
+        with open(env_path, "r") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("GITHUB_TOKEN=") and not line.startswith("#"):
+                    GITHUB_TOKEN = line.split("=", 1)[1].strip().strip('"').strip("'")
+                    break
 
-# 搜索的中国城市关键词（用户主页 location 字段）
+# 搜索的中国城市关键词
 CHINA_LOCATIONS = [
     "China", "中国", "CN",
     "Beijing", "北京", "Shanghai", "上海",

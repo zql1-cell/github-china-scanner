@@ -1,3 +1,0 @@
-0000000000000000000000000000000000000000 71c63fc0c56bcde2d04ad6940a0814e12d2226e2 zql1-cell <zql1-cell@users.noreply.github.com> 1779810596 +0800	commit (initial): feat: GitHub 代码搜索器 - Web UI 界面
-71c63fc0c56bcde2d04ad6940a0814e12d2226e2 ff0711ce3d23b1ae1d7d66a981ddfdf6a7d4f64b zql1-cell <zql1-cell@users.noreply.github.com> 1779810606 +0800	commit (amend): feat: GitHub 代码搜索器 - Web UI 界面
-ff0711ce3d23b1ae1d7d66a981ddfdf6a7d4f64b 12bd1b8dde16774476a975336453e09a0e320752 zql1-cell <zql1-cell@users.noreply.github.com> 1779810667 +0800	commit: fix: 使用环境变量存储 Token，避免泄露
