@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[user]
+	name = zql1-cell
+	email = zql1-cell@users.noreply.github.com
+[remote "origin"]
+	url = https://github.com/zql1-cell/github-china-scanner.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
